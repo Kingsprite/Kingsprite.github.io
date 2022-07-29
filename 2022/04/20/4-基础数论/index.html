@@ -1,0 +1,877 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="533最废物的">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基础数学与数论1.位运算与进制转换1.各种进制1.其他进制转十进制：对于十六进制来说，每个“个位数”都代表1，每个“十位数”权重是16，每个“百位数”权重是162，每个“千位数”权重是163. 因此(ABCD)16&#x3D;(43981)10 10×163+11×162+12×161+13×160&#x3D;43981 不同进制下基底不同————十六进制的基底是16，十进制的基底是10 二进制数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4.基础数论">
+<meta property="og:url" content="http://kingsprite.github.io/2022/04/20/4-%E5%9F%BA%E7%A1%80%E6%95%B0%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Harrion">
+<meta property="og:description" content="基础数学与数论1.位运算与进制转换1.各种进制1.其他进制转十进制：对于十六进制来说，每个“个位数”都代表1，每个“十位数”权重是16，每个“百位数”权重是162，每个“千位数”权重是163. 因此(ABCD)16&#x3D;(43981)10 10×163+11×162+12×161+13×160&#x3D;43981 不同进制下基底不同————十六进制的基底是16，十进制的基底是10 二进制数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/Harrison/AppData/Roaming/Typora/typora-user-images/image-20220408221702349.png">
+<meta property="article:published_time" content="2022-04-20T15:57:00.000Z">
+<meta property="article:modified_time" content="2022-07-29T12:15:30.248Z">
+<meta property="article:author" content="533最废物的">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:/Users/Harrison/AppData/Roaming/Typora/typora-user-images/image-20220408221702349.png">
+  
+  
+  
+  <title>4.基础数论 - Harrion</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kingsprite.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"GRMqsFtMvmUycsrBujRlpTHD-gzGzoHsz","app_key":"jt128fDRPNbUz7ARHmgATnPM","server_url":"https://grmqsftm.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Harrison</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="4.基础数论"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-20 23:57" pubdate>
+          2022年4月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          89 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          可恶！计划已经被 <span id="leancloud-page-views"></span> 人发现了
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">4.基础数论</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="基础数学与数论"><a href="#基础数学与数论" class="headerlink" title="基础数学与数论"></a>基础数学与数论</h1><h3 id="1-位运算与进制转换"><a href="#1-位运算与进制转换" class="headerlink" title="1.位运算与进制转换"></a>1.位运算与进制转换</h3><h4 id="1-各种进制"><a href="#1-各种进制" class="headerlink" title="1.各种进制"></a>1.各种进制</h4><h5 id="1-其他进制转十进制："><a href="#1-其他进制转十进制：" class="headerlink" title="1.其他进制转十进制："></a>1.其他进制转十进制：</h5><p>对于十六进制来说，每个“个位数”都代表1，每个“十位数”权重是16，每个“百位数”权重是16<sup>2</sup>，每个“千位数”权重是16<sup>3</sup>.</p>
+<p>因此(ABCD)<sub>16</sub>&#x3D;(43981)<sub>10</sub></p>
+<p>10×16<sup>3</sup>+11×16<sup>2</sup>+12×16<sup>1</sup>+13×16<sup>0</sup>&#x3D;43981</p>
+<p>不同进制下基底不同————十六进制的基底是16，十进制的基底是10</p>
+<p>二进制数10101101转换为十进制数：最右边一位代表2<sup>0</sup>&#x3D;1，右边第二位代表2<sup>1</sup>&#x3D;2，第三位代表2<sup>2</sup>&#x3D;4······最左边一位(从右边数第八位)代表2<sup>7</sup>&#x3D;128. 因此将各位代表的数字累加起来，则12<sup>0</sup>+2<sup>2</sup>+2<sup>3</sup>+2<sup>5</sup>+2<sup>7</sup>&#x3D;173.</p>
+<h5 id="2-十进制转其他进制："><a href="#2-十进制转其他进制：" class="headerlink" title="2.十进制转其他进制："></a>2.十进制转其他进制：</h5><p>将十进制的数字每次除以基底，然后分别记录下商和余数，然后继续将商除以基底，以次反复，直到商小于基底为止。从最后一个商开始，从下往上记录每一个得到的数字，就是对应的十六进制数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-number">114514</span>/<span class="hljs-number">16</span>=<span class="hljs-number">7157</span>······<span class="hljs-number">2</span><br><span class="hljs-number">7157</span>/<span class="hljs-number">16</span>=<span class="hljs-number">447</span>·········<span class="hljs-number">5</span><br><span class="hljs-number">447</span>/<span class="hljs-number">16</span>=<span class="hljs-number">27</span>···········<span class="hljs-number">15</span>(F)<br><span class="hljs-number">27</span>/<span class="hljs-number">16</span>=<span class="hljs-number">1</span>·············<span class="hljs-number">11</span>(B)<br><span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>从下往上记录，因此(114514)<sub>10</sub>&#x3D;(1BF52)<sub>16</sub></p>
+<pre><code class="hljs">                                                                        **0~15的十进制、十六进制和二进制的对应关系**
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="center">十进制</th>
+<th align="center">十六进制</th>
+<th align="center">二进制</th>
+<th align="center">十进制</th>
+<th align="center">十六进制</th>
+<th align="center">二进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0000</td>
+<td align="center">8</td>
+<td align="center">8</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0001</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center">1001</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">0010</td>
+<td align="center">10</td>
+<td align="center">A</td>
+<td align="center">1010</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">0011</td>
+<td align="center">11</td>
+<td align="center">B</td>
+<td align="center">1011</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">0100</td>
+<td align="center">12</td>
+<td align="center">C</td>
+<td align="center">1100</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center">0101</td>
+<td align="center">13</td>
+<td align="center">D</td>
+<td align="center">1101</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">6</td>
+<td align="center">0110</td>
+<td align="center">14</td>
+<td align="center">E</td>
+<td align="center">1110</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">7</td>
+<td align="center">0111</td>
+<td align="center">15</td>
+<td align="center">F</td>
+<td align="center">1111</td>
+</tr>
+</tbody></table>
+<p>进制转换：</p>
+<p>将输入的n进制数转换为十进制数，然后在转换为m进制数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">char_to_int</span><span class="hljs-params">(<span class="hljs-type">char</span> a)</span></span>&#123;	<span class="hljs-comment">//单个字母转换成数字</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;0&#x27;</span>&lt;=a &amp;&amp; a&lt;=<span class="hljs-string">&#x27;9&#x27;</span>?a-<span class="hljs-string">&#x27;0&#x27;</span>:<span class="hljs-number">10</span>+a-<span class="hljs-string">&#x27;A&#x27;</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">char</span> <span class="hljs-title">int_to_char</span><span class="hljs-params">(<span class="hljs-type">int</span> a)</span></span>&#123;	<span class="hljs-comment">//数字转换成单个字母</span><br>    <span class="hljs-keyword">return</span> a&lt;=<span class="hljs-number">9</span>? a+<span class="hljs-string">&#x27;0&#x27;</span>:a<span class="hljs-number">-10</span>+<span class="hljs-string">&#x27;A&#x27;</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> output[<span class="hljs-number">33</span>];<br>    <span class="hljs-type">int</span> n,m,dec=<span class="hljs-number">0</span>,num=<span class="hljs-number">0</span>;<br>    string input;<br>    cin&gt;&gt;n&gt;&gt;input&gt;&gt;m;<br>    <span class="hljs-comment">//原数转换为十进制</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;input.<span class="hljs-built_in">length</span>();i++)&#123;<br>        dec=dec*n+<span class="hljs-built_in">char_to_int</span>(input[i]);<br>    &#125;<br>    <span class="hljs-comment">//转换为m进制</span><br>    <span class="hljs-keyword">while</span>(dec!=<span class="hljs-number">0</span>)&#123;<br>        output[num++]=dec%m,dec/=m;<br>    &#125;<br>    <span class="hljs-comment">//输出转换好的数字</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=num<span class="hljs-number">-1</span>;i&gt;=<span class="hljs-number">0</span>;i--)<br>        cout&lt;&lt;<span class="hljs-built_in">int_to_char</span>(output[i]);<br>    cout&lt;&lt;endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>十六进制数码对应4位数的二进制数码，所以将十六进制和二进制之间相互转换时并不需要以十进制为过渡，直接进行转换即可(注：二进制需要四位四位分组，而且必须从右往左分组)，例如二进制数1010110111经过分组后可以变为0010	1011	0111可转换为2B7.</p>
+<h4 id="2-二进制的深入研究"><a href="#2-二进制的深入研究" class="headerlink" title="2.二进制的深入研究"></a>2.二进制的深入研究</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> a=<span class="hljs-number">233</span>;<br><span class="hljs-type">int</span> b=<span class="hljs-number">-233</span>;<br><span class="hljs-type">float</span> c=<span class="hljs-number">3.14</span>;<br><span class="hljs-type">char</span> d[<span class="hljs-number">4</span>]=<span class="hljs-string">&quot;Ha!&quot;</span>;<br>十六进制数字前常常会加上“<span class="hljs-number">0</span>x<span class="hljs-string">&quot;以作提示。实际上，在计算机内存中变量是这样存储的。</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Harrison\AppData\Roaming\Typora\typora-user-images\image-20220408221702349.png" srcset="/img/loading.gif" lazyload alt="image-20220408221702349"></p>
+<p>内存非常大，如果希望定位到某个变量，就需要知道这个变量所在的地址。在32位计算机中，地址是32位二进制数，可以缩写为8位十六进制。内存地址是连续的，使用<code>cout&lt;&lt;&amp;a</code>可以输出变量a的地址。一个0或1的数码被称为一位，一个内存地址对应的8位，被称为字节，也就是1B(Byte).</p>
+<p>int类型或float类型占用32位空间。十进制数字233转换为二进制数字为11101001，所以233在低位(右边)填入11101001，高位(左边)用0填充。十进制-233是一个负数，在内存中会表示为1········100010111，高位用1填充。存储浮点数需要将十进制浮点数转换为二进制的浮点数，然后在内存中分别记录符号、指数和有效数字。</p>
+<p>一个char变量占用8位，大小为4的char类型数组占用32位。将这个数组中的每个原数的ASCII码转换为二进制后直接转入内存中，例如’H’的ASCII码值是72，’a’的ASCII码值是97，’!’的ASCII码值是33，字符串最后的’\0’对应的值是0.</p>
+<p>定义一个变量，就会为这个变量准备一块内存空间，并记录这个空间的起始地址。当访问这个变量时，就会根据地址在内存中找到这个变量的值。</p>
+<p>有些变量类型也有无符号数，例如unsigned int类型。这个类型和int类型一样，占用32位。以放弃存储正负号为代价，可以存储比int多一倍的整数值(0到2<sup>32</sup>-1，接近4.3×10<sup>9</sup>).</p>
+<p>计算机中还有其他表示数据大小的单位，比如1KB是2<sup>10</sup>&#x3D;1024字节，1MB是2<sup>20</sup>字节(大约100万字节)，1GB是2<sup>30</sup>字节。但是如果谈论到网络带宽，常常指的是位而不是字节。</p>
+<h6 id="负数转换二进制："><a href="#负数转换二进制：" class="headerlink" title="负数转换二进制："></a>负数转换二进制：</h6><p>在带符号整数signed char的情况下，-56表示成负数的方法</p>
+<p>int类型占有32位，因此使用只占8位的signed char类型。57用二进制表示为0011 1001(补足8位).可以占用最高位的一位来表示正负，0表示非负，1表示负数。</p>
+<ol>
+<li>第一种方式是用除了第一位的数字表示这个负数的绝对值，第一位变成1.这样，-57表示为1011 1001.这种表示方式称为<strong>原码</strong>。但计算机不使用这种方式来表示负数。</li>
+<li>第二种方式是将这个负数的绝对值的数全部取反，由1变为0,0变为1。这样，-57表示为1100 0110。这种方式称为<strong>反码</strong>。使用反码的问题是0会有两种表示方式(全0和全1)，因此不常用。</li>
+<li>第三种方式是先计算这个负数的反码，然后加1.这样-57表示为1100 0111。这是计算机使用的表示负数的方法，被称为<strong>补码</strong>。这种表示方式下0只有1个，全0代表0，全1代表-1。</li>
+</ol>
+<p>使用补码这种表示负数的方式，计算机就可以计算二进制减法了。例如66-57可以认为是66+(-57)。66的二进制是0100 0010，-57的二进制是1100 0111，列竖式累加(异或运算并进位)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">	<span class="hljs-number">0100</span> <span class="hljs-number">0010</span><br>  + <span class="hljs-number">1100</span> <span class="hljs-number">0111</span><br>---------------<br>   <span class="hljs-number">10000</span> <span class="hljs-number">1001</span><br></code></pre></td></tr></table></figure>
+
+<p>由于这个数字溢出了8位，所以只取低位数的8位，得到答案是0000  1001也就是十进制下的9.补码这种方式可以使计算机化减为加。但是谈论补码时必须要确定总位数，因为char类型的1100 0111和int类型的0···0  1100  0111表示的不是同一个数字。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++">memset给<span class="hljs-type">int</span>数组初始化时，只有填充<span class="hljs-number">0</span>和<span class="hljs-number">1</span>时才能初始化为<span class="hljs-number">0</span>或<span class="hljs-number">-1</span>(给一个其他数字，则不会将数组初始化为这个数字)的原因：<br>memset只能将一片数组区域的每一个字节初始化为给定的数字(小于<span class="hljs-number">255</span>)，而一个<span class="hljs-type">int</span>是由<span class="hljs-number">4</span>字节组成的，所以只能填充成全<span class="hljs-number">0</span>(最后的值还是<span class="hljs-number">0</span>)或者全<span class="hljs-number">1</span>(最后的值是<span class="hljs-number">-1</span>)。如果填充成<span class="hljs-number">3</span>，则这个<span class="hljs-type">int</span>的值实际上就变成了<span class="hljs-number">0x03030303</span>.<br>使用memset初始化<span class="hljs-type">int</span>数组时，第二个参数如果是<span class="hljs-number">0</span>，数组就会被初始化为<span class="hljs-number">0</span>，如果是<span class="hljs-number">127</span>会初始化为一个很大且接近<span class="hljs-type">int</span>类型上限的正数，如果是<span class="hljs-number">128</span>，会初始化成很小且接近<span class="hljs-type">int</span>类型下限的负数，如果是<span class="hljs-number">-1</span>或者<span class="hljs-number">255</span>时，数组会初始化为<span class="hljs-number">-1.</span><br></code></pre></td></tr></table></figure>
+
+<h6 id="小数转换二进制："><a href="#小数转换二进制：" class="headerlink" title="小数转换二进制："></a>小数转换二进制：</h6><p>3.14转换成二进制，将实数从十进制转换为二进制，可以将整数部分和实数部分分别处理。整数部分的3是二进制的11.</p>
+<p>将原来的小数数字，每次都乘2，如果得到的结果中整数部分是1，则答案记录一个1并去掉这个整数部分，然后继续运算；如果结果中整数部分还是0，那么答案记录一个0，继续计算。因此3.14表示为二进制数就是11.00100011···，在二进制下是一个无限小数，这也是计算机浮点数类型无法精确表示很多实数的原因。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-number">0.14</span>×<span class="hljs-number">2</span>=<span class="hljs-number">0.28</span><br><span class="hljs-number">0.28</span>×<span class="hljs-number">2</span>=<span class="hljs-number">0.56</span><br><span class="hljs-number">0.56</span>×<span class="hljs-number">2</span>=<span class="hljs-number">1.12</span><br><span class="hljs-number">0.12</span>×<span class="hljs-number">2</span>=<span class="hljs-number">0.24</span><br><span class="hljs-number">0.24</span>×<span class="hljs-number">2</span>=<span class="hljs-number">0.48</span><br><span class="hljs-number">0.48</span>×<span class="hljs-number">2</span>=<span class="hljs-number">0.96</span><br><span class="hljs-number">0.96</span>×<span class="hljs-number">2</span>=<span class="hljs-number">1.92</span><br><span class="hljs-number">0.92</span>×<span class="hljs-number">2</span>=<span class="hljs-number">1.84</span><br>依次记录整数数字：<span class="hljs-number">00100011</span>···<br></code></pre></td></tr></table></figure>
+
+<p>将一个二进制小数转换成十进制。例如101.101，同样将整数部分和小数部分分开，整数部分十进制是5。小数部分的计算方式和整数转换方式差不多：1×2<sup>-1</sup>+0×2<sup>-2</sup>+1×2<sup>-3</sup>&#x3D;0.625，所以二进制下的101.101就是十进制下的5.0625.</p>
+<h4 id="3-逻辑命题与位运算"><a href="#3-逻辑命题与位运算" class="headerlink" title="3.逻辑命题与位运算"></a>3.逻辑命题与位运算</h4><ol>
+<li>或：A∨B：两个命题中至少有一个真命题时，其复合命题为真。</li>
+<li>与：A∧B：两个命题必须全为真命题，其复合命题才是真命题。</li>
+<li>非：¬A：将原命题取反。</li>
+<li>异或：A⊕B：两个命题相同时为假，不同时为真，等价于(A∧¬B)∨(¬A∧B).</li>
+</ol>
+<p>为了简化逻辑表达式，可以将或运算变成加号，与运算变成乘号，非运算变成上划线。<br>$$<br>\neg((A\wedge\neg B)\vee(\neg A\wedge B)可以表示为  \overline{A\overline{B}+\overline{A}B}<br>$$<br>逻辑运算与普通代数运算有类似的性质，而且与运算的优先级高于或运算。</p>
+<p>逻辑运算有以下性质：<br>$$<br>\begin{flalign}<br>&amp; 1)\mathbf{交换律}:AB&#x3D;BA,A+B&#x3D;B+A &amp;<br>\<br>&amp; 2)\mathbf{结合律}:(AB)C&#x3D;A(BC),(A+B)+C&#x3D;A+(B+C)<br>\<br>&amp; 3)\mathbf{分配律}:A(B+C)&#x3D;AB+AC<br>\<br>&amp; 4)	A+1&#x3D;1,0A&#x3D;0<br>\<br>&amp; 5)AA&#x3D;A,A+A&#x3D;A,A+\overline{A}&#x3D;1<br>\<br>&amp; 6)\mathbf{德·摩根定律}:\overline{A}+\overline{B}&#x3D;\overline{AB},\overline{A}\cdot\overline{B}&#x3D;\overline{A+B}<br>\end{flalign}<br>$$</p>
+<h6 id="C-位运算："><a href="#C-位运算：" class="headerlink" title="C++位运算："></a>C++位运算：</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> A=<span class="hljs-number">85</span>,B=<span class="hljs-number">51</span>;<br><span class="hljs-type">int</span> p,q,r,s,u,v;<br>p=A&amp;B;<br>q=A|b;<br>r=A^B;<br>s=~A;<br>u=A&lt;&lt;<span class="hljs-number">2</span>;<br>v=A&gt;&gt;<span class="hljs-number">3</span>;<br>cout&lt;&lt;p&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;q&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;r&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;s&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;u&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;v;<br>Output:<br><span class="hljs-number">17</span> <span class="hljs-number">119</span> <span class="hljs-number">102</span> <span class="hljs-number">-86</span> <span class="hljs-number">340</span> <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<p>&amp;按位与，将前后两个操作数按位对齐，然后每一位上都进行与计算，最后得到位运算的结果。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">例如<span class="hljs-number">85</span>的二进制数为<span class="hljs-number">101</span> <span class="hljs-number">0101</span>，<span class="hljs-number">51</span>的二进制数为<span class="hljs-number">11</span> <span class="hljs-number">0011</span>，计算过程如下(<span class="hljs-type">int</span>类型是<span class="hljs-number">32</span>位二进制数)<br>	A <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0101</span> <span class="hljs-number">0101</span><br> &amp;  B <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0011</span> <span class="hljs-number">0011</span><br> ---------------------------------------------<br>    P <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0001</span> <span class="hljs-number">0001</span><br></code></pre></td></tr></table></figure>
+
+<p>可以发现每一位都进行了与运算，最后结果是1 0001也就是十进制的17.</p>
+<p>|符号是按位或，^符号按位异或。异或运算符的优先级高于按位或运算，低于按位与运算。</p>
+<p>~符号是取反；&lt;&lt;符号是位左移，&gt;&gt;符号是位右移。。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">A:<span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0101</span> <span class="hljs-number">0101</span><br>  ~A:<span class="hljs-number">1111</span> <span class="hljs-number">1111</span> <span class="hljs-number">1111</span> <span class="hljs-number">1111</span> <span class="hljs-number">1111</span> <span class="hljs-number">1111</span> <span class="hljs-number">1010</span> <span class="hljs-number">1010</span><br>A&lt;&lt;<span class="hljs-number">2</span>:<span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0001</span> <span class="hljs-number">0101</span> <span class="hljs-number">0100</span><br>A&gt;&gt;<span class="hljs-number">3</span>:<span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">0000</span> <span class="hljs-number">1010</span><br></code></pre></td></tr></table></figure>
+
+<p>取反是将这个数字的二进制数0变1,1变0，根据补码就可以知道转换后的数字。对于带符号整数来说，~A的值和-A-1的值是相同的。</p>
+<p>左移是将这个二进制数的所有位数往左移动指定的位数，右边用0补齐，左边截掉。</p>
+<p>右移是将这个二进制数的所有位数往右移动指定的位数，右边截掉。右移时，如果原数是非负数，则左边补0，否则左边补1。</p>
+<p>因此a&lt;&lt;n&#x3D;a×2<sup>n</sup>，a&gt;&gt;n&#x3D;a&#x2F;2<sup>n</sup>.</p>
+<h3 id="2-计数原理与排列组合"><a href="#2-计数原理与排列组合" class="headerlink" title="2.计数原理与排列组合"></a>2.计数原理与排列组合</h3><h4 id="1-加法原理和乘法原理"><a href="#1-加法原理和乘法原理" class="headerlink" title="1.加法原理和乘法原理"></a>1.加法原理和乘法原理</h4><h4 id="2-排列与组合"><a href="#2-排列与组合" class="headerlink" title="2.排列与组合"></a>2.排列与组合</h4><p>$$<br>\begin{flalign}<br>&amp;从n个人里面选出m个排成一排的方案数是：n(n-1)···(n-m+1)&#x3D;\frac{n!}{(n-m)!}称他为排列数&amp;<br>\<br>&amp;用A_{n}^{m}表示从n个元素里面取m个元素。&amp;<br>\<br>&amp;A_{n}^{m}&#x3D;\frac{n!}{(n-m)!}&amp;<br>\<br>\end{flalign}<br>$$</p>
+<p>$$<br>\begin{flalign}<br>&amp;用C_{n}^{m}表示从n个元素里面取m个元素。称为组合数<br>\<br>&amp;C_{n}^{m}&#x3D;C_{n-1}^{m-1}+C_{n-1}^{m}是组合数的递推公式，称为帕斯卡公式<br>\<br>&amp;C_{n}^{m}&#x3D;\frac{A_{n}^{m}}{A_{m}^{m}}&#x3D;\frac{n\mathbf{\cdot} (n-1)·\cdots·(n-m+1)}{m·(m-1)·\cdots·2·1}&#x3D;\frac{n!}{m!·(n-m)!}&amp;<br>\<br>&amp;C_{n}^{m}&#x3D;C_{n}^{n-m}&amp;<br>\<br>&amp;C_{n}^{0}&#x3D;C_{n}^{n}&#x3D;1&amp;<br>\end{flalign}<br>$$</p>
+<h3 id="3-整除理论"><a href="#3-整除理论" class="headerlink" title="3.整除理论"></a>3.整除理论</h3><h4 id="1-整除的基本知识"><a href="#1-整除的基本知识" class="headerlink" title="1.整除的基本知识"></a>1.整除的基本知识</h4><p>设a,b是两个整数，且a≠0，如果存在另一个整数q，使得b&#x3D;aq，那么就说b可以被a整除，记做a|b，且称b是a的倍数，a是b的约数。</p>
+<p>使用<code>a%b==0</code>来表示b能够整除a</p>
+<p>整除有下面3个常用性质：</p>
+<ol>
+<li>若a|b且b|c，那么a|c</li>
+<li>若a|b且a|c，那么对任意的整数x,y，有a|bx+cy</li>
+<li>设整数m≠0，那么a|b等价于ma|mb</li>
+</ol>
+<p>$$<br>\begin{flalign}<br>&amp;用优化的枚举法寻找n的所有约数，如果k是n的约数，那么\frac{n}{k}也一定是n的约数，只要限定k\le\frac{n}{k}，即k\le \sqrt{n},就可以在O(\sqrt{n})的时间&amp;<br>\&amp;复杂度内找到n的所有因数&amp;<br>\end{flalign}<br>$$</p>
+<h4 id="2-质数与合数"><a href="#2-质数与合数" class="headerlink" title="2.质数与合数"></a>2.质数与合数</h4><p>$$<br>\begin{flalign}<br>&amp;设正整数p≠0,1。如果它除了1和p外没有其他的约数，那么就称p为\mathbf{质数}。&amp;<br>\<br>&amp;若正整数a≠0,1且a不是质数，则称a为合数。&amp;<br>\<br>&amp;每个合数都会有相对较小的质因子&amp;<br>\<br>&amp;推论：若a为合数，则a能被表示成a&#x3D;pq,其中p,q&gt;1。易证p,q中一定有一个不超过\sqrt{a}。&amp;<br>\<br>&amp;更严格地，若a为合数，则一定存在质数p|a，且p\le\sqrt{a}&amp;<br>\end{flalign}<br>$$</p>
+<p>线性筛：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">is_prime</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;	<span class="hljs-comment">//判断x是否为质数</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i*i&lt;=x;i++)&#123;	<span class="hljs-comment">//i不超过sqrt(x)</span><br>        <span class="hljs-keyword">if</span>(x%i==<span class="hljs-number">0</span>)	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>埃拉托尼斯筛（埃氏筛）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Eratosthenes_Sieve</span><span class="hljs-params">(<span class="hljs-type">int</span> n,<span class="hljs-type">bool</span> a[])</span></span>&#123;<br>    <span class="hljs-comment">//寻找不超过n的所有质数，数组a用来存放结果，用a[i]==1表示a是合数。</span><br>    <span class="hljs-built_in">memset</span>(a,<span class="hljs-number">0</span>,<span class="hljs-built_in">sizeof</span>(<span class="hljs-type">bool</span>)*(n+<span class="hljs-number">1</span>));	<span class="hljs-comment">//清零</span><br>    a[<span class="hljs-number">0</span>]=a[<span class="hljs-number">1</span>]=<span class="hljs-number">1</span>;	<span class="hljs-comment">//0和1需要特殊标记</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i*i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">if</span>(a[i]==<span class="hljs-number">0</span>)&#123;	<span class="hljs-comment">//如果i未被之前的数筛去说明i是质数</span><br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=i&lt;&lt;<span class="hljs-number">1</span>;j&lt;=n;j+=i)&#123;<br>                a[j]=<span class="hljs-number">1</span>;	<span class="hljs-comment">//筛去i的所有倍数i*j</span><br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>埃氏筛的时间复杂度是O(nlnlnn)，欧拉筛法时间复杂度是O(n).</p>
+<h4 id="3-最大公约数与最小公倍数"><a href="#3-最大公约数与最小公倍数" class="headerlink" title="3.最大公约数与最小公倍数"></a>3.最大公约数与最小公倍数</h4><p>$$<br>\begin{flalign}<br>&amp;设a_{1},a_{2}是两个整数，如果d|a_{1},d|a_{2},那么d就称为a_{1}和a_{2}的\mathbf{公约数}，其中最大的称为a_{1}和a_{2}的\mathbf{最大公约数}.记作(a_{1}，a_{2}).&amp;<br>\<br>&amp;一般地，可以类似地定义k个整数a_{1},a_{2}\cdots a_{k}的公约数和最大公约数，后者记作(a_{1}，a_{2}\cdots a_{k}).&amp;<br>\<br>&amp;设a_{1},a_{2}是两个整数，如果a_{1}|l,a_{2}|l,那么l就称为a_{1}和a_{2}的\mathbf{公倍数}，其中最小的称为a_{1}和a_{2}的\mathbf{最小公倍数}，记作[a_{1},a_{2}].&amp;<br>\<br>&amp;一般地，可以类似地定义k个整数a_{1},a_{2}\cdots a_{k}的公倍数和最小公倍数，后者记作[a_{1}，a_{2}\cdots a_{k}].&amp;<br>\end{flalign}<br>$$</p>
+<p>$$<br>\begin{flalign}<br>&amp;有关最大公约数和最小公倍数的常见性质与结论:&amp;<br>\<br>&amp;性质1:对任意整数m,m(a_{1},\cdots,a_{k})&#x3D;(ma_{1},\cdots,ma_{k}),即整数同时成倍放大,最大公约数也放大相同倍数.(最小公倍数也适用).<br>\<br>&amp;性质2:对任意整数x,(a_{1},a_{2})&#x3D;(a_{1},a_{2}+a_{1}x),即一个整数加上另一整数的任意倍数，它们的最大公约数不变.(最小公倍数不适用).<br>\<br>&amp;(a,0)&#x3D;a<br>\<br>&amp;性质3:(a_{1},a_{2},a_{3},\cdots,a_{k})&#x3D;((a_{1},a_{2}),a_{3},\cdots,a_{k}),以及一个显然的结论(a_{1},a_{2},a_{3},\cdots,a_{k+r})&#x3D;((a_{1},\cdots,a_{k}),(a_{k+1},\cdots,a_{k+r})).<br>\<br>&amp;性质4:<a href="a_%7B1%7D,a_%7B2%7D">a_{1},a_{2}</a>&#x3D;a_{1}a_{2},最大公约数\times 最小公倍数&#x3D;原来两个数的乘积.<br>\end{flalign}<br>$$</p>
+<p><strong>辗转相除法</strong> <strong>（Euclid算法）</strong>:</p>
+<p>每次让较大的数对较小的数取模，可以缩小问题规模而保持最大公约数不变，然后递归，递归边界时某数变成了0，此时另一个数即为所求答案</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(x==<span class="hljs-number">0</span>)	<span class="hljs-keyword">return</span> y;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-built_in">gcd</span>(y,x%y);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>时间复杂度是O(logmax(x,y))，相近规模下能让辗转相处执行次数最多（最坏情况）的数是相邻的两个斐波那契数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span>&#123;<span class="hljs-keyword">return</span> y?<span class="hljs-built_in">gcd</span>(y,x%y):x;&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">lcm</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span>&#123;<span class="hljs-keyword">return</span> x/<span class="hljs-built_in">gcd</span>(x,y)*y;&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-算术基本定理"><a href="#4-算术基本定理" class="headerlink" title="4.算术基本定理"></a>4.算术基本定理</h4><p>一个整数可以被表示成若干质数的乘积。例如：48&#x3D;2<sup>4</sup>×3，49&#x3D;7<sup>2</sup>，50&#x3D;2×5<sup>2</sup></p>
+<h5 id="1-算术基本定理："><a href="#1-算术基本定理：" class="headerlink" title="1.算术基本定理："></a>1.算术基本定理：</h5><p>$$<br>\begin{flalign}<br>&amp;设a&gt;1,那么必有a&#x3D;p_{1}^{a_{1}}p_{2}^{a_{2}}\cdots p_{s}^{a_{s}},其中p_{j}(1\le j\le s)是两两不相同的质数，a_{j}表示对应质数的幂次(出现的次数).<br>\<br>&amp;若在不计次序的意义下，该分解式是唯一的.<br>\<br>&amp;分解质因数的时间和枚举因数一样是O(\sqrt{n}).&amp;<br>\end{flalign}<br>$$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Decomposition</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> a[])</span></span>&#123;<br>    <span class="hljs-comment">//分解x，数组a升序记录所有质数，函数值返回分解出来的质数数量</span><br>    <span class="hljs-type">int</span> cnt=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i&lt;=x/i;i++)&#123;<br>        <span class="hljs-keyword">for</span>(;x%i==<span class="hljs-number">0</span>;x/=i)&#123;<br>            a[++cnt]=i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(x&gt;<span class="hljs-number">1</span>)	a[++cnt]=x;<br>    <span class="hljs-keyword">return</span> cnt;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="算术基本定理常用推论："><a href="#算术基本定理常用推论：" class="headerlink" title="算术基本定理常用推论："></a>算术基本定理常用推论：</h5><p>$$<br>\begin{flalign}<br>&amp;给定a&#x3D;p_{1}^{\alpha_{1}}p_{2}^{\alpha_{2}}\cdots p_{s}^{\alpha_{s}}&amp;<br>\end{flalign}<br>$$</p>
+<h5 id="推论1："><a href="#推论1：" class="headerlink" title="推论1："></a>推论1：</h5><p>$$<br>\begin{flalign}<br>&amp;d是a的约数的充要条件是d&#x3D;p_{1}^{e_{1}}p_{2}^{e_{2}}\dots p_{s}^{e_{s}},0 \le e_{j} \le \alpha_{j},1\le j\le s,即d中每个质数的幂次都不超过a的.&amp;<br>\<br>&amp;每个质因子上的幂次直接决定了两数之间的整除性&amp;<br>\<br>&amp;例如12&#x3D;2^{2}×3,72&#x3D;2^{3}×3^{2},12的质因子上的每个幂次都比72小,可以在进行取模运算的情况下给出12|72的结论.&amp;<br>\end{flalign}<br>$$</p>
+<h5 id="推论2："><a href="#推论2：" class="headerlink" title="推论2："></a>推论2：</h5><p>$$<br>\begin{flalign}<br>&amp;若b&#x3D;p_{1}^{\beta_{1}}p_{2}^{\beta_{2}} \cdots p_{s}^{\beta_{s}}(允许某些\alpha_{j}或 \beta_{j}为零)<br>\<br>&amp;那么(a,b)&#x3D;p_{1}^{\delta_{1}}p_{2}^{\delta_{2}} \cdots p_{s}^{\delta <em>{s}},\delta</em>{j}&#x3D;min(\alpha_{j},\beta_{j}),1\le j\le s<br>\<br>&amp;以及[a,b]&#x3D;p_{1}^{\gamma_{1}}p_{2}^{\gamma_{2}} \cdots p_{s}^{\gamma_{s}},\gamma_{j}&#x3D;max(\alpha_{j},\beta_{j}),1\le j\le s&amp;<br>\<br>&amp;例如10&#x3D;2×5,16&#x3D;2^{4},那么(10,16)&#x3D;2^{min(1,4)}×5^{min(1,0)}&#x3D;2^{1}×5^{0}&#x3D;2,且[10,16]&#x3D;2^{max(1,4)}×5^{max(1,0)}&#x3D;2^{4}×5^{1}&#x3D;80.&amp;<br>\<br>&amp;可以直接证明(a_{1},a_{2})×[a_{1},a_{2}]&#x3D;a_{1}a_{2}.&amp;<br>\<br>&amp;所以<a href="a_%7B1%7D,a_%7B2%7D">a_{1},a_{2}</a>&#x3D;a_{1}a_{2}的本质其实是min(\alpha,\beta)+max(\alpha,\beta)&#x3D;\alpha+\beta.&amp;<br>\end{flalign}<br>$$</p>
+<h5 id="推论3："><a href="#推论3：" class="headerlink" title="推论3："></a>推论3：</h5><p>$$<br>\begin{flalign}<br>&amp;用\mathbf{除数函数}\tau(a)表示a的所有正约数的个数，则\tau(a)&#x3D;(\alpha_{1}+1)\cdots (\alpha_{s}+1)&#x3D;\tau(p_{1}^{\alpha_{1}})\cdots \tau(p_{1}^{\alpha_{s}}). &amp;<br>\<br>&amp;对于每个质因子上的幂次,可以取0到\alpha_{i}中的任意整数，共\alpha_{i}+1个.&amp;<br>\<br>&amp;例如,a&#x3D;2^{7}×3^{8}×5^{9},a的质因子个数&#x3D;(7+1)(8+1)(9+1)&#x3D;720.&amp;<br>\end{flalign}<br>$$</p>
+<h5 id="推论4："><a href="#推论4：" class="headerlink" title="推论4："></a>推论4：</h5><p>$$<br>\begin{flalign}<br>&amp;用\mathbf{除数和函数}\sigma(a)表示a的所有正约数的和，则\sigma(a)&#x3D;\frac{p_{1}^{a_{1}+1}-1}{p_{1}-1}\cdots\frac{p_{s}^{a_{s}+1}-1}{p_{s}-1}&#x3D;\sigma(p_{1}^{a_{1}})\cdots\sigma(p_{s}^{a_{s}}).&amp;<br>\end{flalign}<br>$$</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="category-chain-item">算法竞赛</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>4.基础数论</div>
+      <div>http://kingsprite.github.io/2022/04/20/4-基础数论/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>533最废物的</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月20日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/09/2-%E5%88%9D%E6%B6%89%E7%AE%97%E6%B3%95/" title="2.初涉算法初">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2.初涉算法初</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/21/1-%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/" title="1.语言入门">
+                        <span class="hidden-mobile">1.语言入门</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"GRMqsFtMvmUycsrBujRlpTHD-gzGzoHsz","appKey":"jt128fDRPNbUz7ARHmgATnPM","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        计划已经被看过 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        有 
+        <span id="leancloud-site-uv"></span>
+         人发现计划了
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

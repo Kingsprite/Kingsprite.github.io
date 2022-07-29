@@ -1,0 +1,945 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="533最废物的">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="语言入门1.浮点数$$1.6666e6&#x3D;1.6666*10^6$$ $$1.6666e-6&#x3D;1.6666*10^{-6}$$ 2.头文件#include&lt;cmath&gt; pow() sqrt() abs()求整数的绝对值，fabs()求实数的绝对值$$&amp;pow(x,y)&#x3D;x^y\&amp;sqrt(x)&#x3D;\sqrt{x}(double类型)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.语言入门">
+<meta property="og:url" content="http://kingsprite.github.io/2022/03/21/1-%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Harrion">
+<meta property="og:description" content="语言入门1.浮点数$$1.6666e6&#x3D;1.6666*10^6$$ $$1.6666e-6&#x3D;1.6666*10^{-6}$$ 2.头文件#include&lt;cmath&gt; pow() sqrt() abs()求整数的绝对值，fabs()求实数的绝对值$$&amp;pow(x,y)&#x3D;x^y\&amp;sqrt(x)&#x3D;\sqrt{x}(double类型)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/Harrison/AppData/Roaming/Typora/typora-user-images/image-20211219020318341.png">
+<meta property="article:published_time" content="2022-03-21T10:39:00.000Z">
+<meta property="article:modified_time" content="2022-07-29T12:14:27.717Z">
+<meta property="article:author" content="533最废物的">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:/Users/Harrison/AppData/Roaming/Typora/typora-user-images/image-20211219020318341.png">
+  
+  
+  
+  <title>1.语言入门 - Harrion</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kingsprite.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"GRMqsFtMvmUycsrBujRlpTHD-gzGzoHsz","app_key":"jt128fDRPNbUz7ARHmgATnPM","server_url":"https://grmqsftm.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Harrison</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="1.语言入门"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-21 18:39" pubdate>
+          2022年3月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          78 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          可恶！计划已经被 <span id="leancloud-page-views"></span> 人发现了
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">1.语言入门</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="语言入门"><a href="#语言入门" class="headerlink" title="语言入门"></a>语言入门</h1><h4 id="1-浮点数"><a href="#1-浮点数" class="headerlink" title="1.浮点数"></a>1.浮点数</h4><p>$$<br>1.6666e6&#x3D;1.6666*10^6<br>$$</p>
+<p>$$<br>1.6666e-6&#x3D;1.6666*10^{-6}<br>$$</p>
+<h4 id="2-头文件"><a href="#2-头文件" class="headerlink" title="2.头文件"></a>2.头文件</h4><p><code>#include&lt;cmath&gt;</code></p>
+<p><code>pow()</code></p>
+<p><code>sqrt()</code></p>
+<p>abs()求整数的绝对值，fabs()求实数的绝对值<br>$$<br>&amp;pow(x,y)&#x3D;x^y<br>\<br>&amp;sqrt(x)&#x3D;\sqrt{x}(double类型)<br>\<br>&amp;exp(x)&#x3D;e^x<br>\<br>&amp;fabs(x)&#x3D;\left| x \right|<br>\<br>&amp;ceil(x)&#x3D;\lceil x \rceil<br>\<br>&amp;floor(x)&#x3D;\lfloor x \rfloor<br>$$</p>
+<p><img src="C:\Users\Harrison\AppData\Roaming\Typora\typora-user-images\image-20211219020318341.png" srcset="/img/loading.gif" lazyload alt="image-20211219020318341"></p>
+<h4 id="3-定义常量"><a href="#3-定义常量" class="headerlink" title="3.定义常量"></a>3.定义常量</h4><p><font size=5><code>const double 变量名</code></font></p>
+<h4 id="4-头文件"><a href="#4-头文件" class="headerlink" title="4.头文件"></a>4.头文件</h4><p><font size=5> <code>&lt;iomanip&gt;</code></font></p>
+<p><font size=5> <code>setw()</code><strong>当后面紧跟着的输出字段长度小于 n 的时候，在该字段前面用空格补齐，当输出字段长度大于 n 时，全部整体输出。</strong></font></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iomanip&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// 开头设置宽度为 4，后面的 runoob 字符长度大于 4，所以不起作用</span><br>    cout &lt;&lt; <span class="hljs-built_in">setw</span>(<span class="hljs-number">4</span>) &lt;&lt; <span class="hljs-string">&quot;runoob&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-comment">// 中间位置设置宽度为 4，后面的 runoob 字符长度大于 4，所以不起作用</span><br>    cout &lt;&lt; <span class="hljs-string">&quot;runoob&quot;</span> &lt;&lt; <span class="hljs-built_in">setw</span>(<span class="hljs-number">4</span>) &lt;&lt; <span class="hljs-string">&quot;runoob&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-comment">// 开头设置间距为 14，后面 runoob 字符数为6，前面补充 8 个空格</span><br>    cout &lt;&lt; <span class="hljs-built_in">setw</span>(<span class="hljs-number">14</span>) &lt;&lt; <span class="hljs-string">&quot;runoob&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-comment">// 中间位置设置间距为 14 ，后面 runoob 字符数为6，前面补充 8 个空格</span><br>    cout &lt;&lt; <span class="hljs-string">&quot;runoob&quot;</span> &lt;&lt; <span class="hljs-built_in">setw</span>(<span class="hljs-number">14</span>) &lt;&lt; <span class="hljs-string">&quot;runoob&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br>out<br>runoob<br>runoobrunoob<br>        runoob<br>runoob        runoob<br></code></pre></td></tr></table></figure>
+
+<p><font size=5> <code>setfill(x)</code>用x填充<code>set(w)</code></font></p>
+<p><a href="%5B(4%E6%9D%A1%E6%B6%88%E6%81%AF">fixed的用法</a> 详解C++中fixed，setprecision(),setw()的用法_xian__xian的博客-CSDN博客_c++ fixed](<a target="_blank" rel="noopener" href="https://blog.csdn.net/xian__xian/article/details/114017770">https://blog.csdn.net/xian__xian/article/details/114017770</a>))</p>
+<p>cout.setf(ios::fixed);</p>
+<p>cout.unsetf(ios::fixed);</p>
+<p>关闭同步流加快cin</p>
+<p>ios::sync_with_stdio(false);</p>
+<p>fixed单独使用是控制小数点后输出6位</p>
+<p>setprecision控制有效数字位数</p>
+<p><code>cout&lt;&lt;fixed&lt;&lt;setprecision(x)</code>输出x位数字</p>
+<p>fixed是输出格式流用&#96;cout.unsetf(ios::fixed)消除</p>
+<h4 id="4-随机数算法"><a href="#4-随机数算法" class="headerlink" title="4.随机数算法"></a>4.随机数算法</h4><p><strong>rand函数需使用<code>&lt;stdlib.h&gt;</code>\<code>&lt;cstdlib&gt;</code>头文件</strong></p>
+<p>rand(),srand();</p>
+<p>可以用 rand()%a 来产生一个 0 到 a-1 的随机数。如果想产生一个 a 到 b 的随机数可以使用 rand()%(b-a+1)+a。</p>
+<p>要取得[a,b)的随机整数，使用(rand() % (b-a))+ a （结果值含a不含b）。<br>要取得[a,b]的随机整数，使用(rand() % (b-a+1))+ a （结果值含a和b）。<br>要取得(a,b]的随机整数，使用(rand() % (b-a))+ a + 1 （结果值不含a含b）。</p>
+<p>srand()一定要放在循环外面或者是循环调用的外面，否则的话得到的是相同的随机数。</p>
+<p>srand(time(0));</p>
+<p>srand((unsigned)time(NULL)); 			&#x2F;&#x2F;需要用<code>&lt;time.h&gt;</code>头文件</p>
+<p>要取得 [a,b) 的随机整数，使用 (rand() % (b-a))+ a;</p>
+<p>要取得 [a,b] 的随机整数，使用 (rand() % (b-a+1))+ a;</p>
+<p>要取得 (a,b] 的随机整数，使用 (rand() % (b-a))+ a + 1;</p>
+<p><strong>通用公式: a + rand() % n；其中的 a 是起始值，n 是整数的范围。</strong></p>
+<p>要取得 a 到 b 之间的随机整数，另一种表示：DD。</p>
+<p>要取得 0～1 之间的浮点数，可以使用 rand() &#x2F; double(RAND_MAX)。</p>
+<p>abs在C中是<code>&lt;stdlib.h&gt;</code>头文件，C++中用<code>&lt;cmath&gt;</code>头文件</p>
+<h4 id="5-输入输出字符串"><a href="#5-输入输出字符串" class="headerlink" title="5.输入输出字符串"></a>5.输入输出字符串</h4><p><code>puts()  gets()</code></p>
+<p><code>getchar() putchar()</code></p>
+<p><code>scanf()  printf()</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">gets</span>(str);<br>    <span class="hljs-built_in">puts</span>(str)==<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>,str);	<span class="hljs-comment">//puts自带换行符</span><br>    <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;123456&quot;</span>);	<span class="hljs-comment">//直接输出字符串</span><br>    <span class="hljs-type">char</span>=<span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-built_in">putchar</span>(<span class="hljs-type">char</span>);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%c&quot;</span>,&amp;<span class="hljs-type">char</span>);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>,string);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s&quot;</span>,string);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%c&quot;</span>,<span class="hljs-type">char</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>getchar()	putchar()</code>输入输出单个字符char;</p>
+<p><code>gets()	puts()</code>输入输出字符串string（gets()易导致字符数组越界不常用）;</p>
+<p><code>scanf()	printf()</code>中%c输入输出char,%s输入输出string;</p>
+<h4 id="6-字符串函数"><a href="#6-字符串函数" class="headerlink" title="6.字符串函数"></a>6.字符串函数</h4><p>头文件<code>&lt;ctring&gt;</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstring&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">char</span> a[<span class="hljs-number">1000</span>],b[<span class="hljs-number">1000</span>];<br>    <span class="hljs-built_in">strlen</span>(a);	<span class="hljs-comment">//查询字符串长度</span><br>    <span class="hljs-built_in">strcpy</span>(a,<span class="hljs-string">&quot;123&quot;</span>);<br>    <span class="hljs-built_in">strcpy</span>(a,b);<br>    strcmp;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>toupper()</code>将小写字母转换为大写字母</p>
+<p><code>tolower()</code>将大写字母转换为小写字母</p>
+<h4 id="7-输入输出"><a href="#7-输入输出" class="headerlink" title="7.输入输出"></a>7.输入输出</h4><p><code>fgets(string,sizeof(string),stdin);</code>	&#x2F;&#x2F;从输入流<code>stdin</code>即输入缓冲区中读取<code>sizeof(string)</code>个字符到字符数组<code>string</code>中</p>
+<p><strong>注：fgets是从输入缓冲区中读取字符，若上一次输入有换行符，需先用getchar()清空缓冲区或使用<code>scanf(&quot;%d\n&quot;,&amp;int);</code>用’\n’清空缓冲区</strong></p>
+<p><code>fgets()</code>同样自带换行符</p>
+<p><code>gets</code>易导致数组越界,<code>fgets</code>可以指定最大读入数量，防止溢出;</p>
+<p><code>fgets()</code>中n未输入满时，若其余位置有初始值，则不变，否则为’\0’;输入多余n个字符时，其余字符仍在输入缓冲区，下次输入前需用<code>getchar()</code>清空输入缓冲区;</p>
+<p><code>sscanf(s,&quot;%d&quot;,&amp;a)</code>从s字符串中读入整数a</p>
+<p><code>sprintf(s,&quot;%d&quot;,a)</code>把int类型的a输出到字符串s中</p>
+<h4 id="8-cstring和string头文件的区别"><a href="#8-cstring和string头文件的区别" class="headerlink" title="8.cstring和string头文件的区别"></a>8.cstring和string头文件的区别</h4><p><code>&lt;string.h&gt;</code>是c中字符串头文件</p>
+<p><code>&lt;string&gt;</code>是C++中字符串的STL模板</p>
+<p><code>&lt;cstring&gt;</code>C++中字符串</p>
+<h4 id="9-输入输出的返回值"><a href="#9-输入输出的返回值" class="headerlink" title="9.输入输出的返回值"></a>9.输入输出的返回值</h4><ol>
+<li><code>scanf, fscanf, sscanf, scanf_s, fscanf_s, sscanf_s</code>返回值为成功赋值的接收参数的数量，结束时返回EOF，未读取到时返回0;</li>
+<li><code>cin</code>为对象，返回值为<code>cin</code>本身，当输入EOF时，返回值为0：</li>
+</ol>
+<p><code>getchar, putchar</code>成功时为获得的字符，失败时为 EOF 。</p>
+<p><code>gets</code>成功时为 str（char*） ，失败时为 NULL 。</p>
+<p><code>puts</code>成功时返回非负值</p>
+<h4 id="9-字符串函数"><a href="#9-字符串函数" class="headerlink" title="9.字符串函数"></a>9.字符串函数</h4><p><code>strcat(str,string)</code>在str后面接上string</p>
+<h4 id="10-文件操作与重定向"><a href="#10-文件操作与重定向" class="headerlink" title="10.文件操作与重定向"></a>10.文件操作与重定向</h4><h5 id="头文件-include-lt-cstdio-gt"><a href="#头文件-include-lt-cstdio-gt" class="headerlink" title="头文件#include&lt;cstdio&gt;"></a>头文件<code>#include&lt;cstdio&gt;</code></h5><p><code>freopen(&quot;program.in&quot;,&quot;r&quot;,stdin)</code></p>
+<p><code>freopen(&quot;program.out&quot;,&quot;w&quot;,stdout)</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE				<span class="hljs-comment">//防止OJ运行重定向操作</span></span><br>	<span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;tilte.in&quot;</span>,<span class="hljs-string">&quot;r&quot;</span>,stdin);<br>	<span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;tilte.out&quot;</span>,<span class="hljs-string">&quot;w&quot;</span>,stdout);<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ......</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+
+<h4 id="11-函数"><a href="#11-函数" class="headerlink" title="11.函数"></a>11.函数</h4><p><code>scanf(&quot;%s,&amp;a&quot;)</code></p>
+<p><code>scanf(&quot;%s,a&quot;)</code></p>
+<p>字符串数组名代表该字符串数组的起始地址</p>
+<p>a为字符串数组时，&amp;a和a(数组名)同为数组的地址</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">char</span> s[<span class="hljs-number">100</span>];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%c&quot;</span>,&amp;s[i]);	<span class="hljs-comment">//输入一个字符</span><br>  	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>,s);		<span class="hljs-comment">//输入一串字符串，s作为字符数组时&amp;s与数组名s同为s的地址</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>对于字符串数组或字符串指针变量，由于数组名可以转换为数组和指针变量名本身就是地址，因此使用scanf()函数时，不需要在它们前面加上”&amp;”操作符。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(a,b)</span>		<span class="hljs-comment">//只会交换形参，不会改变实参</span></span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(&amp;a,&amp;b)</span>	<span class="hljs-comment">//&amp;用来传参，改变a,b地址存放的实际参数</span></span><br></code></pre></td></tr></table></figure>
+
+<p><code>string s</code>中string将字符数组封装成为一个整体，本质仍是字符数组，因此s的变量名即为地址。将字符串s复制进函数成为一个新的字符串，函数中的操作针对新字符串改变，原字符串仍不变。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> s[<span class="hljs-number">25</span>];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">stat</span><span class="hljs-params">(<span class="hljs-type">int</span> a[],<span class="hljs-type">int</span> m)</span></span>&#123;<br>	<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">stat</span>(s,m);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>int a[]指int类型的数组名，传递数组名即传递数组在内存中的地址</p>
+<p><strong>总结：除string外的数组，在函数中传递数组名即为传递地址，可以改变数组中的内容，string作为字符串数组时，不可以改变数组中的内容</strong></p>
+<h4 id="12-结构体"><a href="#12-结构体" class="headerlink" title="12.结构体"></a>12.结构体</h4><p><code>i&lt;&lt;n</code>表示i*(2^n)<br>$$<br>i&lt;&lt;n&#x3D;i*2^n<br>i&gt;&gt;n&#x3D;i&#x2F;2^n<br>$$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">student</span>&#123;<br>    string name;<br>    <span class="hljs-type">int</span> chinese;<br>&#125;a,ans;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">student</span>&#123;<br>    ......<br>&#125;;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">student</span> a;	<span class="hljs-comment">//struct可省略	</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin&gt;&gt;a.chinese;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>建立结构体时可以在结构体中定义和结构体名称相同的构造函数，例如下程序中的student结构体和student函数，函数不必加上返回值对结构体进行初始化时直接调用构造函数进行初始化。</p>
+<p>还可以在结构体中定义成员函数，用于处理结构体对象的内部变量，构造函数是一种特殊的成员函数，在结构体内部访问自己对象结构体的成员变量或成员函数时，在对应的变量名或函数名前需要加上<code>this-&gt;</code>，如果不产生歧义，可以不加。</p>
+<p>在结构体外调用结构体成员函数时，需要<code>结构体变量名.成员变量名</code>即可，例如<code>one_student.sum()</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">student</span>&#123;<br>    <span class="hljs-type">int</span> id;<br>    <span class="hljs-type">int</span> academic,quality;<br>    <span class="hljs-type">double</span> overall;<br>    <span class="hljs-built_in">student</span>(<span class="hljs-type">int</span> _id,<span class="hljs-type">int</span> _ac,<span class="hljs-type">int</span> _qu)&#123;		<span class="hljs-comment">//初始化构造函数</span><br>        <span class="hljs-keyword">this</span>-&gt;id=_id;<br>        <span class="hljs-keyword">this</span>-&gt;ac=_ac;<br>        <span class="hljs-keyword">this</span>-&gt;qu=_qu;<br>        <span class="hljs-keyword">this</span>-&gt;overall=<span class="hljs-number">0.7</span>*_ac+<span class="hljs-number">0.3</span>*_qu;<br>    &#125;<br>    <span class="hljs-built_in">student</span>()&#123;&#125;								<span class="hljs-comment">//定义一个空参数的函数，没有传递参数的初始化构造函数</span><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">sum</span><span class="hljs-params">()</span></span>&#123;								<span class="hljs-comment">//成员函数</span><br>        <span class="hljs-keyword">return</span> academic+quality;<br>    &#125;<br>&#125;;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">is_excellent</span><span class="hljs-params">(student s)</span></span>&#123;				<span class="hljs-comment">//访问成员变量s.oveall与调用成员函数s.sum()</span><br>    <span class="hljs-keyword">return</span> s.overall&gt;=<span class="hljs-number">80</span> &amp;&amp; s.<span class="hljs-built_in">sum</span>()&gt;<span class="hljs-number">140</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin&gt;&gt;n;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-type">int</span> tmp_id,tmp_ac,tmp_qu;<br>        cin&gt;&gt;tmp_id&gt;&gt;tmp_ac&gt;&gt;tmp_qu;<br>        <span class="hljs-function">student <span class="hljs-title">one_student</span><span class="hljs-params">(tmp_td,tmp_ac,tmp_qu)</span></span>;	<span class="hljs-comment">//结构体初始化</span><br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">is_excellent</span>(one_student))&#123;				<span class="hljs-comment">//结构体变量作为参数传递</span><br>            cout&lt;&lt;<span class="hljs-string">&quot;Excellent&quot;</span>&lt;&lt;endl;<br>        &#125;<br>        <span class="hljs-keyword">else</span> cout&lt;&lt;“No Excellent<span class="hljs-string">&quot;&lt;&lt;endl;</span><br><span class="hljs-string">    &#125;</span><br><span class="hljs-string">    return 0;</span><br><span class="hljs-string">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>结构体对象可以像单个变量一样，作为参数直接进入函数，而不是和数组一样只能传入地址，在函数中修改结构体对象中的成员变量时，不会影响到函数外面，除非加上&amp;传参。</p>
+<p>**总结：除string外的数组，在函数中传递数组名即为传递地址，可以改变数组中的内容，string作为字符串数组时，不可以改变数组中的内容，在函数中改变成员变量时，不会影响函数外成员变量。 **</p>
+<p>函数中改变除string外的数组会影响函数外的值，改变变量、string数组或成员变量时不会影响函数外的值.</p>
+<h4 id="13-补充"><a href="#13-补充" class="headerlink" title="13.补充"></a>13.补充</h4><ol>
+<li><p>短路判断：计算表达式时，如果只计算部分内容就可以确保一个表达式的结果，那么剩余部分计算机就不会继续运算下去了。</p>
+</li>
+<li><p>三目运算符的形式是 S1?S2:S3 如果 S1 条件成立，那么这个表达式的值是 S2，否则是 S3。</p>
+</li>
+<li><p>我们还可以使用 memset 函数来实现（需要 cstring 头文件）</p>
+<p>int a[10010]&#x3D;{0}; &#x2F;&#x2F; 这表示 a 数组中的所有变量初始化为 0。 </p>
+<p>memset(数组名称,0,sizeof(数组名称));</p>
+</li>
+<li><p>scanf或cin读入字符串,只能读入到空格 或者换行符为止</p>
+<p>使用 getchar() 函数获取输入数据中一个字符 使用 putchar() 函数则是输出一个字符。</p>
+</li>
+<li><p>cstring函数</p>
+<table>
+<thead>
+<tr>
+<th>cstring头文件</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>strlen(s)</td>
+<td>获得字符数组的长度，数到 ’\0’</td>
+</tr>
+<tr>
+<td>strcpy(a,b)</td>
+<td>将 b 字符数组的数据复制到 a</td>
+</tr>
+<tr>
+<td>strcmp(a,b)</td>
+<td>比较两个字符串，a&gt;b 则返回 1</td>
+</tr>
+<tr>
+<td>char a[100]；strcpy(a, “hello”);</td>
+<td>给字符数组赋值常量</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>不能直接给字符数组赋值，除非在定义时初始化。char a[100]&#x3D;”Luogu!”</p>
+<p>从输入中读入完整一行（含空格）可这么写。fgets(s, sizeof(s), stdin);</p>
+</li>
+<li><p>字符串string头文件的STL</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>string s</td>
+<td>定义一个名字为 s 的字符串变量</td>
+</tr>
+<tr>
+<td>s+&#x3D;str 或 s.append(str)</td>
+<td>在字符串 s 后面拼接字符串 str</td>
+</tr>
+<tr>
+<td>s&lt;str</td>
+<td>比较字符串 s 的是否在字符串 str 的字典序之前</td>
+</tr>
+<tr>
+<td>s.size() 或 s.length()</td>
+<td>得到字符串 s 的长度</td>
+</tr>
+<tr>
+<td>s.substr(pos,len)</td>
+<td>截取字符串 s，从第 pos 个位置开始 len 个字符， 并返回这个字符串</td>
+</tr>
+<tr>
+<td>s.insert(pos, str)</td>
+<td>字符串 s 的第 pos 个字符之前，插入字符串 str， 并返回这个字符串</td>
+</tr>
+<tr>
+<td>s.find(str, [pos])</td>
+<td>字符串 s 中从第 pos 个字符开始寻找 str，并返回位置，如 果找不到返回 string::npos(将其强制转换为 int 类型后才是 -1)。pos 可以省略，默认值是 0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>字符数组和字符串的异同</p>
+<p>字符数组：C 语言就存在，比较原始； </p>
+<p>string：在 C++ 中可以使用字符数组的“进化版本” </p>
+<p>string 的变量名在很多情况下可当做字符数组的变量名，用于 sscanf、sprintf 等地方。</p>
+<p>string 和字符数组也是可以相互转换的，见下方例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// string转字符数组</span><br><span class="hljs-type">char</span> arr[<span class="hljs-number">10</span>];<br>string s = <span class="hljs-string">&quot;LUOGU&quot;</span>;<br><span class="hljs-type">int</span> len = s.<span class="hljs-built_in">copy</span>(arr, <span class="hljs-number">9</span>);<br><span class="hljs-comment">// 最多允许复制9个字符，否则就越界了</span><br>arr[len] = <span class="hljs-string">&#x27;\0&#x27;</span>; <span class="hljs-comment">// 在末尾增加结束标记</span><br><span class="hljs-comment">// 或者</span><br><span class="hljs-type">char</span> arr[<span class="hljs-number">10</span>];<br>string s = <span class="hljs-string">&quot;LUOGU&quot;</span>;<br><span class="hljs-built_in">strcpy</span>(arr, s.<span class="hljs-built_in">c_str</span>());<br><span class="hljs-comment">// strncpy(arr, s.c_str(), 10);</span><br><span class="hljs-comment">// 字符数组转string就更简单了</span><br><span class="hljs-type">char</span> arr[<span class="hljs-number">10</span>];<br><span class="hljs-built_in">strcpy</span>(arr, <span class="hljs-string">&quot;LUOGU&quot;</span>);<br>string s;<br>s = arr;<br></code></pre></td></tr></table></figure>
+
+<p>提示：读入一整行的 string 字符串 getline(cin, 字符串名称)</p>
+</li>
+<li><p><strong>0和1都不是质数</strong></p>
+</li>
+<li><p>在参数的变量名前面加上一个 &amp; 符号，代表引用传参。</p>
+<p>告知 swap 函数 a 和 b 的地址，故 x 是 a 别名，y 是 b 的别名，修</p>
+<p>改 x 和 y 的值，就会影响到 a 和 b。</p>
+</li>
+<li></li>
+</ol>
+<h4 id="14-总结"><a href="#14-总结" class="headerlink" title="14.总结"></a>14.总结</h4><ol>
+<li><p>程序设计流程 分析问题 建立模型 编写程序 调试与测试 </p>
+<p>程序基本框架 头文件 名字空间 主函数 输出语句 返回值 </p>
+<p>加减乘除的运算 运算优先级 </p>
+<p>整数与浮点数 使用数学函数<code>&lt;cmath&gt;</code></p>
+<p>变量：用于存放数据的容器。有不同的类型，值可以变化。可以当做表达式的一部分参与计算。变量的命名有讲究 </p>
+<p>常量：用于表达固定的常数。 可以使用变量分步骤完成比较复杂的计算。</p>
+</li>
+<li><p>double：用于存放小数的变量类型。 </p>
+<p>char：用于存放字符的变量类型。ASCII将每个字母和数字对应。</p>
+<p>cin&gt;&gt;a：用于读入输入的信息给表示变量 a。</p>
+<p> 一道题目如果按照题意不好解决，不妨想想能不能换一种数据处 理的方式，比如把数字当成字符。</p>
+<p>占位符：scanf&#x2F;printf 用于来格式化输入输出。需要牢记几个重要占位符，并区分。</p>
+<p>算法竞赛基本格式： 每个题目都有固定的输入输出格式，需要认真阅读。 </p>
+<p>数据类型强制转换： 将其他类型的数据类型转换为需要的数据类型。 </p>
+<p>常见评测状态： 是对选手作答结果的反馈。 可以根据反馈的结果对代码进行修改。</p>
+</li>
+<li><p>if 语句、if-else 语句 如果给定的表达式为真，那么执行指定语句 否则（else）执行另外的语句 </p>
+<p>switch-case 分支语句 判断某个表达式的值在几个常量的值 每个分支要加 break 退出，default 其余情况 </p>
+<p>条件语句嵌套 可以多个 else 多个分支，或者分支中还有分支 注意复杂的分支语句，以及大括号的用法 </p>
+<p>缩进、逗号表达式、注释、问号表达式 让编程更容易的一些窍门</p>
+<p>关系表达式：真（1）假（0） 大于小于等于不等于，注意优先级 </p>
+<p>逻辑表达式 </p>
+<p>与（&amp;&amp;）：同时为真则为真 </p>
+<p>或（||） ：至少有一个为真则为真 </p>
+<p>异或（^） ：刚好有一个为真则为真 </p>
+<p>非（!） ：颠倒黑白 </p>
+<p>浮点数精度误差、短路判断</p>
+</li>
+<li><p>for 循环 for 循环格式 &#x2F; 常用于有固定次数的循环 </p>
+<p>while 循环 循环体运行前验证循环成立条件 </p>
+<p>do-while 语句 循环体运行结束后再验证循环成立条件 i++ 和 ++i 是有区别的 </p>
+<p>随机数 随机生成一个范围的随机数 生成随机数前加上srand(time(0))</p>
+<p>数字按位拆分 n % 10 得到 n 的最后一位（即个位） n &#x2F; 10 删去 n 的最后一位 </p>
+<p>多重循环 将任务分解为多个需要循环的子任务 每个子任务中又需要进行循环 </p>
+<p>计算机运行时间 计算机很快，但也有极限，超过一亿次循环很难一秒钟跑完 </p>
+<p>判断质数 i 从 2 枚举到 √n 判断是否能整除 n </p>
+<p>break 和 continue 跳出这个循环，以及直接开始下一轮循环</p>
+</li>
+<li><p>数组 数组是多个变量的集合 定义方式：数据类型 数组变量名称[元素个数]； 数组定义时应略微定义大一些，例如 int a[1010] 可以用 a[50]，a[i] 这种形式访问一个值 </p>
+<p>数组初始化 可用循环依次赋值，也可用memset或定义时初始化 注意初始化所花费的时间 不同题目初始化的值应分别考虑</p>
+<p>数组下标的应用 查找数组中的指定元素 在数组中插入&#x2F;删除一个元素 </p>
+<p>多维数组 可定义多维数组，变成一个矩阵，例如 int a[105][105] 数组通常与循环结构共同使用 </p>
+<p>一些数组的比较复杂的应用:数组的坐标表示：(x,y) 坐标系统，往下 x 变大，往右 y 变大 </p>
+<p>桶计数，设置数组，用于统计每个元素的数量</p>
+</li>
+<li><p>字符数组 就是数组中存储字符的数组，知道如何输入输出 对数组中的字符进行处理、修改 </p>
+<p>STL 中的字符串 string STL 提供了很多封装好的工具可以使用 功能强大，使字符串处理的问题简单很多 </p>
+<p>文件输入输出 在一些竞赛中必须使用文件输入输出 相比于标准输入输出，在本地调试可能更省时间</p>
+</li>
+<li><p>定义子程序：可以定义函数并且调用它，参数有实际参数和形式参数，可以将大程序拆成几个小的部分</p>
+<p>变量作用域与参数传递：局部变量和全局变量，以及引用传参</p>
+<p>递归函数：自己调用自己。可以将大问题分解成形式一样的小问题</p>
+<p>结构体的使用：结构体可以集合不同数据类型为独立结构，也可以批量存储和作为函数的参数或者返回值</p>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="category-chain-item">算法竞赛</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>1.语言入门</div>
+      <div>http://kingsprite.github.io/2022/03/21/1-语言入门/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>533最废物的</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年3月21日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/20/4-%E5%9F%BA%E7%A1%80%E6%95%B0%E8%AE%BA/" title="4.基础数论">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">4.基础数论</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/09/01/BJTU/" title="BJTU">
+                        <span class="hidden-mobile">BJTU</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"GRMqsFtMvmUycsrBujRlpTHD-gzGzoHsz","appKey":"jt128fDRPNbUz7ARHmgATnPM","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        计划已经被看过 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        有 
+        <span id="leancloud-site-uv"></span>
+         人发现计划了
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
