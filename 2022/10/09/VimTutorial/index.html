@@ -18,22 +18,22 @@
   <meta name="author" content="Harrison">
   <meta name="keywords" content="">
   
-    <meta name="description" content="千万别来北京交通大学！！！">
+    <meta name="description" content="Modal editing Normal: for moving around a file and making edits Insert: for inserting text Replace: for replacing text Visual (plain, line, or block): for selecting blocks of text Command-line: for ru">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BJTU">
-<meta property="og:url" content="http://kingsprite.github.io/2021/09/01/BJTU/index.html">
+<meta property="og:title" content="Vim教程">
+<meta property="og:url" content="http://kingsprite.github.io/2022/10/09/VimTutorial/index.html">
 <meta property="og:site_name" content="Harrion">
-<meta property="og:description" content="千万别来北京交通大学！！！">
+<meta property="og:description" content="Modal editing Normal: for moving around a file and making edits Insert: for inserting text Replace: for replacing text Visual (plain, line, or block): for selecting blocks of text Command-line: for ru">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-01T12:26:00.000Z">
-<meta property="article:modified_time" content="2022-07-29T12:08:42.204Z">
+<meta property="article:published_time" content="2022-10-08T17:08:40.000Z">
+<meta property="article:modified_time" content="2022-10-08T17:10:05.959Z">
 <meta property="article:author" content="Harrison">
-<meta property="article:tag" content="School life">
+<meta property="article:tag" content="Vim">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>BJTU - Harrion</title>
+  <title>Vim教程 - Harrion</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="BJTU"></span>
+            <span id="subtitle" data-typed-text="Vim教程"></span>
           
         </div>
 
@@ -226,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-09-01 20:26" pubdate>
-          2021年9月1日 晚上
+        <time datetime="2022-10-09 01:08" pubdate>
+          2022年10月9日 凌晨
         </time>
       </span>
     
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13 字
+          1.6k 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          1 分钟
+          14 分钟
         
       </span>
     
@@ -295,13 +295,66 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">BJTU</h1>
+            <h1 style="display: none">Vim教程</h1>
             
             
               <div class="markdown-body">
                 
-                <p>千万别来北京交通大学！！！</p>
-
+                <h3 id="Modal-editing"><a href="#Modal-editing" class="headerlink" title="Modal editing"></a>Modal editing</h3><ul>
+<li><strong>Normal</strong>: for moving around a file and making edits</li>
+<li><strong>Insert</strong>: for inserting text</li>
+<li><strong>Replace</strong>: for replacing text</li>
+<li><strong>Visual</strong> (plain, line, or block): for selecting blocks of text</li>
+<li><strong>Command-line</strong>: for running a command</li>
+</ul>
+<p>pressing <code>&lt;ESC&gt; </code>from any mode back to Normal mode. </p>
+<p>From Normal mode, enter Insert mode with <code>i</code>, Replace mode with <code>R</code>, Visual mode with <code>v</code>, Visual Line mode with <code>V</code>, Visual Block mode with <code>&lt;C-v&gt;</code> (Ctrl-V, sometimes also written <code>^V</code>), and Command-line mode with <code>:</code>.</p>
+<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><h4 id="Inserting-text"><a href="#Inserting-text" class="headerlink" title="Inserting text"></a>Inserting text</h4><p>press <code>i</code> from Normal mode to enter Insert mode, press <code>ESC</code> to return to Normal mode.</p>
+<h4 id="Buffers-tabs-and-windows"><a href="#Buffers-tabs-and-windows" class="headerlink" title="Buffers, tabs, and windows"></a>Buffers, tabs, and windows</h4><h4 id="Command-line"><a href="#Command-line" class="headerlink" title="Command-line"></a>Command-line</h4><p>Command mode can be entered by typing <code>:</code> in Normal mode.</p>
+<p>Command mode has many functionalities, including opening, saving, and closing files, and quitting Vim.</p>
+<ul>
+<li><p><code>:q</code> quit (close window)</p>
+</li>
+<li><p><code>:w</code> save (“write”)</p>
+</li>
+<li><p><code>:wq</code> save and quit</p>
+</li>
+<li><p><code>:e &#123;name of file&#125;</code> open file for editing</p>
+</li>
+<li><p><code>:ls</code> show open buffers</p>
+</li>
+<li><p><code>:help &#123;topic&#125;</code>  open help</p>
+<ul>
+<li><p><code>:help :w</code> opens help for the <code>:w</code> command</p>
+</li>
+<li><p><code>:help w</code> opens help for the <code>w</code> movement</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Vim’s-interface-is-a-programming-language"><a href="#Vim’s-interface-is-a-programming-language" class="headerlink" title="Vim’s interface is a programming language"></a>Vim’s interface is a programming language</h3><h4 id="Movement"><a href="#Movement" class="headerlink" title="Movement"></a>Movement</h4><ul>
+<li>Basic movement : <code>hjkl</code> (left, down, up, right)</li>
+<li>Words:<code>w</code> (next word), <code>b</code> (beginning of word), <code>e</code> (end of word)</li>
+<li>Lines:<code>0</code> (beginning of line),<code>^</code> (first non-blank character), <code>$</code> (end of line)</li>
+<li>Screen:<code>H</code> (top of screen), <code>M </code>(middle of screen), <code>L </code>(bottom of screen)</li>
+<li>Scroll:<code>Ctrl-u</code> (up), <code>Ctrl-d</code> (down)</li>
+<li>File:<code>gg</code> (beginning of file), <code>G</code> (end of file)</li>
+<li>Line numbers:<code>:&#123;number&#125;&lt;CR&gt;</code> or <code>&#123;number&#125;G</code> (line{number})</li>
+<li>Misc: <code>%</code> (corresponding item)</li>
+<li>Find:<code>f&#123;character&#125;</code>, <code>t&#123;character&#125;</code>, <code>F&#123;character&#125;</code>, <code>T&#123;character&#125;</code><ul>
+<li>find&#x2F;to forward&#x2F;backward{character} on the current line</li>
+<li><code>,</code> &#x2F; <code>;</code> for navigating matches</li>
+</ul>
+</li>
+<li>Search: <code>/&#123;regex&#125; </code> , <code>n</code>&#x2F;<code>N</code> for navigating matches</li>
+</ul>
+<h4 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h4><p>Visual modes:</p>
+<ul>
+<li>Visual:<code>v</code></li>
+<li>Visual Line:<code>V</code></li>
+<li>Visual Block:<code>ctrl-V</code></li>
+</ul>
+<h4 id="Edits"><a href="#Edits" class="headerlink" title="Edits"></a>Edits</h4><h4 id="Counts"><a href="#Counts" class="headerlink" title="Counts"></a>Counts</h4><h4 id="Modifiers"><a href="#Modifiers" class="headerlink" title="Modifiers"></a>Modifiers</h4>
                 
               </div>
             
@@ -313,7 +366,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/School-life/">#School life</a>
+        <a href="/tags/Vim/">#Vim</a>
       
     </div>
   
@@ -325,8 +378,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>BJTU</div>
-      <div>http://kingsprite.github.io/2021/09/01/BJTU/</div>
+      <div>Vim教程</div>
+      <div>http://kingsprite.github.io/2022/10/09/VimTutorial/</div>
     </div>
     <div class="license-meta">
       
@@ -338,7 +391,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2021年9月1日</div>
+          <div>2022年10月9日</div>
         </div>
       
       
@@ -368,15 +421,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/21/1-%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/" title="1.语言入门">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">1.语言入门</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/07/29/html%E6%95%99%E7%A8%8B/" title="HTML教程">
+                        <span class="hidden-mobile">HTML教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
