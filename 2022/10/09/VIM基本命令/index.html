@@ -18,22 +18,22 @@
   <meta name="author" content="Harrison">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Modal editing Normal: for moving around a file and making edits Insert: for inserting text Replace: for replacing text Visual (plain, line, or block): for selecting blocks of text Command-line: for ru">
+    <meta name="description" content="分类                               命令                                            一、打开文件、保存、关闭文件                               vim filename &#x2F;&#x2F;打开filename文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vim教程">
-<meta property="og:url" content="http://kingsprite.github.io/2022/10/09/VimTutorial/index.html">
+<meta property="og:title" content="VIM基本命令">
+<meta property="og:url" content="http://kingsprite.github.io/2022/10/09/VIM%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Harrion">
-<meta property="og:description" content="Modal editing Normal: for moving around a file and making edits Insert: for inserting text Replace: for replacing text Visual (plain, line, or block): for selecting blocks of text Command-line: for ru">
+<meta property="og:description" content="分类                               命令                                            一、打开文件、保存、关闭文件                               vim filename &#x2F;&#x2F;打开filename文件">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-08T17:08:40.000Z">
-<meta property="article:modified_time" content="2022-10-08T17:10:05.959Z">
+<meta property="article:published_time" content="2022-10-08T18:20:27.000Z">
+<meta property="article:modified_time" content="2022-10-08T18:20:51.798Z">
 <meta property="article:author" content="Harrison">
 <meta property="article:tag" content="Vim">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Vim教程 - Harrion</title>
+  <title>VIM基本命令 - Harrion</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Vim教程"></span>
+            <span id="subtitle" data-typed-text="VIM基本命令"></span>
           
         </div>
 
@@ -226,7 +226,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-09 01:08" pubdate>
+        <time datetime="2022-10-09 02:20" pubdate>
           2022年10月9日 凌晨
         </time>
       </span>
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.4k 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          14 分钟
+          13 分钟
         
       </span>
     
@@ -295,66 +295,295 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Vim教程</h1>
+            <h1 style="display: none">VIM基本命令</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="Modal-editing"><a href="#Modal-editing" class="headerlink" title="Modal editing"></a>Modal editing</h3><ul>
-<li><strong>Normal</strong>: for moving around a file and making edits</li>
-<li><strong>Insert</strong>: for inserting text</li>
-<li><strong>Replace</strong>: for replacing text</li>
-<li><strong>Visual</strong> (plain, line, or block): for selecting blocks of text</li>
-<li><strong>Command-line</strong>: for running a command</li>
-</ul>
-<p>pressing <code>&lt;ESC&gt; </code>from any mode back to Normal mode. </p>
-<p>From Normal mode, enter Insert mode with <code>i</code>, Replace mode with <code>R</code>, Visual mode with <code>v</code>, Visual Line mode with <code>V</code>, Visual Block mode with <code>&lt;C-v&gt;</code> (Ctrl-V, sometimes also written <code>^V</code>), and Command-line mode with <code>:</code>.</p>
-<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><h4 id="Inserting-text"><a href="#Inserting-text" class="headerlink" title="Inserting text"></a>Inserting text</h4><p>press <code>i</code> from Normal mode to enter Insert mode, press <code>ESC</code> to return to Normal mode.</p>
-<h4 id="Buffers-tabs-and-windows"><a href="#Buffers-tabs-and-windows" class="headerlink" title="Buffers, tabs, and windows"></a>Buffers, tabs, and windows</h4><h4 id="Command-line"><a href="#Command-line" class="headerlink" title="Command-line"></a>Command-line</h4><p>Command mode can be entered by typing <code>:</code> in Normal mode.</p>
-<p>Command mode has many functionalities, including opening, saving, and closing files, and quitting Vim.</p>
-<ul>
-<li><p><code>:q</code> quit (close window)</p>
-</li>
-<li><p><code>:w</code> save (“write”)</p>
-</li>
-<li><p><code>:wq</code> save and quit</p>
-</li>
-<li><p><code>:e &#123;name of file&#125;</code> open file for editing</p>
-</li>
-<li><p><code>:ls</code> show open buffers</p>
-</li>
-<li><p><code>:help &#123;topic&#125;</code>  open help</p>
-<ul>
-<li><p><code>:help :w</code> opens help for the <code>:w</code> command</p>
-</li>
-<li><p><code>:help w</code> opens help for the <code>w</code> movement</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Vim’s-interface-is-a-programming-language"><a href="#Vim’s-interface-is-a-programming-language" class="headerlink" title="Vim’s interface is a programming language"></a>Vim’s interface is a programming language</h3><h4 id="Movement"><a href="#Movement" class="headerlink" title="Movement"></a>Movement</h4><ul>
-<li>Basic movement : <code>hjkl</code> (left, down, up, right)</li>
-<li>Words:<code>w</code> (next word), <code>b</code> (beginning of word), <code>e</code> (end of word)</li>
-<li>Lines:<code>0</code> (beginning of line),<code>^</code> (first non-blank character), <code>$</code> (end of line)</li>
-<li>Screen:<code>H</code> (top of screen), <code>M </code>(middle of screen), <code>L </code>(bottom of screen)</li>
-<li>Scroll:<code>Ctrl-u</code> (up), <code>Ctrl-d</code> (down)</li>
-<li>File:<code>gg</code> (beginning of file), <code>G</code> (end of file)</li>
-<li>Line numbers:<code>:&#123;number&#125;&lt;CR&gt;</code> or <code>&#123;number&#125;G</code> (line{number})</li>
-<li>Misc: <code>%</code> (corresponding item)</li>
-<li>Find:<code>f&#123;character&#125;</code>, <code>t&#123;character&#125;</code>, <code>F&#123;character&#125;</code>, <code>T&#123;character&#125;</code><ul>
-<li>find&#x2F;to forward&#x2F;backward{character} on the current line</li>
-<li><code>,</code> &#x2F; <code>;</code> for navigating matches</li>
-</ul>
-</li>
-<li>Search: <code>/&#123;regex&#125; </code> , <code>n</code>&#x2F;<code>N</code> for navigating matches</li>
-</ul>
-<h4 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h4><p>Visual modes:</p>
-<ul>
-<li>Visual:<code>v</code></li>
-<li>Visual Line:<code>V</code></li>
-<li>Visual Block:<code>ctrl-V</code></li>
-</ul>
-<h4 id="Edits"><a href="#Edits" class="headerlink" title="Edits"></a>Edits</h4><h4 id="Counts"><a href="#Counts" class="headerlink" title="Counts"></a>Counts</h4><h4 id="Modifiers"><a href="#Modifiers" class="headerlink" title="Modifiers"></a>Modifiers</h4>
+                <table>
+    <tr>
+        <td align='center'>
+            分类
+        </td>
+        <td align='center'>
+            命令
+        </td>
+    </tr>
+       <tr>
+        <td rowspan='6'>
+            一、打开文件、保存、关闭文件
+        </td>
+        <td>
+            vim filename //打开filename文件
+        </td>
+    </tr>
+    <tr>
+        <td>
+            :w //保存文件
+        </td>
+    </tr>
+    <tr>
+        <td>
+            :w jb51.net //保存至jb51.net文件
+        </td>
+    </tr>
+    <tr>
+        <td>
+            :q //退出编辑器，如果文件已修改请使用下面的命令
+        </td>
+    </tr>
+    <tr>
+        <td>
+            :q! //退出编辑器，且不保存
+        </td>
+    </tr>
+    <tr>
+        <td>
+            :wq //退出编辑器，且保存文件
+        </td>
+    </tr>
+       <tr>
+        <td rowspan='8'>
+            二、插入文本或行(按ESC键可退出插入模式)
+        </td>
+        <td>
+            a //在当前光标位置的右边添加文本
+        </td>
+    </tr>
+    <tr>
+        <td>
+            i //在当前光标位置的左边添加文本
+        </td>
+    </tr>
+    <tr>
+        <td>
+            A //在当前行的末尾位置添加文本
+        </td>
+    </tr>
+    <tr>
+        <td>
+            I //在当前行的开始处添加文本(非空字符的行首)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            O //在当前行的上面新建一行
+        </td>
+    </tr>
+    <tr>
+        <td>
+            o //在当前行的下面新建一行
+        </td>
+    </tr>
+    <tr>
+        <td>
+            R //替换(覆盖)当前光标位置及后面的若干文本
+        </td>
+    </tr>
+    <tr>
+        <td>
+            J //合并光标所在行及下一行为一行(依然在命令模式)
+        </td>
+    </tr>
+    <tr>
+        <td rowspan='3'>
+            三、移动光标
+        </td>
+        <td>
+            使用上下左右方向键
+        </td>
+    </tr>
+    <tr>
+        <td>
+            命令模式下：h 向左、j 向下 、k 向上、l 向右。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            空格键 向右、Backspace 向左、Enter 移动到下一行首、- 移动到上一行首。
+        </td>
+    </tr>
+    <tr>
+        <td rowspan='6'>
+            四、删除、恢复字符或行
+        </td>
+        <td>
+            x //删除当前字符
+        </td>
+    </tr>
+    <tr>
+        <td>
+            nx //删除从光标开始的n个字符
+        </td>
+    </tr>
+    <tr>
+        <td>
+            dd //删除当前行
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ndd //向下删除当前行在内的n行
+        </td>
+    </tr>
+    <tr>
+        <td>
+            u //撤销上一步操作
+        </td>
+    </tr>
+    <tr>
+        <td>
+            U //撤销对当前行的所有操作
+        </td>
+    </tr>
+    <tr>
+        <td rowspan='4'>
+            五、搜索
+        </td>
+        <td>
+            /atool //向光标下搜索atool字符串
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ?atool //向光标上搜索atool字符串
+        </td>
+    </tr>
+    <tr>
+        <td>
+            n //向下搜索前一个搜素动作
+        </td>
+    </tr>
+    <tr>
+        <td>
+            N //向上搜索前一个搜索动作
+        </td>
+    </tr>
+    <tr>
+        <td rowspan='4'>
+            六、跳至指定行
+        </td>
+        <td>
+            n+ //向下跳n行
+        </td>
+    </tr>
+    <tr>
+        <td>
+            n- //向上跳n行
+        </td>
+    </tr>
+    <tr>
+        <td>
+            nG //跳到行号为n的行
+        </td>
+    </tr>
+    <tr>
+        <td>
+            G //跳至文件的底部
+        </td>
+    </tr>
+    <tr>
+        <td rowspan='2'>
+            七、设置行号
+        </td>
+        <td>
+            :set nu //显示行号
+        </td>
+    </tr>
+    <tr>
+        <td>
+            :set nonu //取消显示行号
+        </td>
+    </tr>
+    <tr>
+        <td rowspan='8'>
+            八、复制、粘贴
+        </td>
+        <td>
+            yy //将当前行复制到缓存区，也可以用 "ayy 复制，"a 为缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            nyy //将当前行向下n行复制到缓冲区，也可以用 "anyy 复制，"a 为缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            yw //复制从光标开始到词尾的字符。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            nyw //复制从光标开始的n个单词。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            y^ //复制从光标到行首的内容。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            y$ //复制从光标到行尾的内容。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            p //粘贴剪切板里的内容在光标后，如果使用了前面的自定义缓冲区，建议使用"ap 进行粘贴。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            P //粘贴剪切板里的内容在光标前，如果使用了前面的自定义缓冲区，建议使用"aP 进行粘贴。
+        </td>
+    </tr>
+    <tr>
+        <td rowspan='4'>
+            九、替换
+        </td>
+        <td>
+            :s/old/new //用new替换行中首次出现的old
+        </td>
+    </tr>
+    <tr>
+        <td>
+            :s/old/new/g //用new替换行中所有的old
+        </td>
+    </tr>
+    <tr>
+        <td>
+            :n,m s/old/new/g //用new替换从n到m行里所有的old
+        </td>
+    </tr>
+    <tr>
+        <td>
+            :%s/old/new/g //用new替换当前文件里所有的old
+        </td>
+    </tr>
+    <tr>
+        <td>
+            十、编辑其他文件
+        </td>
+        <td>
+            :e otherfilename //编辑文件名为otherfilename的文件。
+        </td>
+    </tr>
+    <tr>
+        <td>
+            十一、修改文件格式
+        </td>
+        <td>
+            set fileformat=unix //将文件修改为unix格式，如win下面的文本文件在linux下会出现^M。
+        </td>
+    </tr>
+</table>
+
+<p>1.学习 vim 并且其会成为你最后一个使用的文本编辑器。没有比这个更好的文本编辑器了，非常地难学，但是却不可思议地好用。</p>
+<p>2.我建议下面这四个步骤：①.存活；②.感觉良好；③.觉得更好，更强，更快；④.使用VIM的超能力。</p>
+<p>3.vim的学习曲线相当的大，所以，如果你一开始看到的是一大堆VIM的命令分类，你一定会对这个编辑器失去兴趣的。</p>
+<p>4.vi(vim)是上Linux非常常用的编辑器，很多Linux发行版都默认安装了vi(vim)。vi(vim)命令繁多但是如果使用灵活之后将会大大提高效率。vi是”visualinterface”的缩写，vim是vi IMproved(增强版的vi)。</p>
+
                 
               </div>
             
@@ -378,8 +607,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Vim教程</div>
-      <div>http://kingsprite.github.io/2022/10/09/VimTutorial/</div>
+      <div>VIM基本命令</div>
+      <div>http://kingsprite.github.io/2022/10/09/VIM基本命令/</div>
     </div>
     <div class="license-meta">
       
@@ -421,18 +650,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/09/VIM%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" title="VIM基本命令">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">VIM基本命令</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/29/html%E6%95%99%E7%A8%8B/" title="HTML教程">
-                        <span class="hidden-mobile">HTML教程</span>
+                      <a href="/2022/10/09/VimTutorial/" title="Vim教程">
+                        <span class="hidden-mobile">Vim教程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
